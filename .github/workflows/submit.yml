@@ -1,4 +1,4 @@
-name: "Submit to Web Store"
+name: "Build, test, and send email"
 on:
   workflow_dispatch:
 
