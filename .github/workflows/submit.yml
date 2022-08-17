@@ -19,4 +19,6 @@ jobs:
           version: 7.1.0
           run_install: true
       - name: Test, Build and zip extension artifact
-        run: pnpm test && pnpm run pnpm build -- --zip
+      - run: pnpm test
+      - run: pnpm build -- --zip
+      - run: ls build
