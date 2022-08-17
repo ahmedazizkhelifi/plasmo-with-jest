@@ -1,4 +1,4 @@
-name: "Build, test"
+name: "pnpm Build test"
 on:
   workflow_dispatch:
 jobs:
