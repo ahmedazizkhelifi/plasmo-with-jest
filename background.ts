@@ -5,3 +5,10 @@ export const createGoogleSearch = () =>
 
 //createGoogleSearch()
 console.log("bg running")
+/* 
+- name: Browser Platform Publish
+uses: PlasmoHQ/bpp@v2
+with:
+  keys: ${{ secrets.SUBMIT_KEYS }}
+  artifact: build/chrome-mv3-prod.zip 
+*/
