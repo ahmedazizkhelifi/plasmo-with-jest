@@ -1,0 +1,60 @@
+a,
+a:visited {
+  color: #01ff70;
+}
+
+a:hover,
+a:focus,
+a:active {
+  color: #2ecc40;
+}
+
+html {
+  font-size: 12px;
+}
+
+@media screen and (min-width: 32rem) and (max-width: 48rem) {
+  html {
+    font-size: 15px;
+  }
+}
+
+@media screen and (min-width: 48rem) {
+  html {
+    font-size: 16px;
+  }
+}
+
+body {
+  line-height: 1.85;
+}
+
+p,
+.retro-p {
+  font-size: 1rem;
+  margin-bottom: 1.3rem;
+}
+
+html,
+body {
+  background-color: #222;
+  min-height: 100%;
+}
+
+html {
+  font-size: 18px;
+}
+
+body {
+  color: #fafafa;
+  font-family: "Courier New";
+  line-height: 1.45;
+  margin: 6rem auto 1rem;
+  max-width: 48rem;
+  padding: 0.25rem;
+}
+
+blockquote {
+  border-left: 3px solid #01ff70;
+  padding-left: 1rem;
+}

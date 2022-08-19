@@ -68,27 +68,64 @@ jobs:
           html_body: |
             <!DOCTYPE html>
             <html>
-            <body>
-                 <p> "Build job of ${{github.repository}} completed successfully! </p>
-                 <a href="https://drive.google.com/drive/u/0/folders/${{ secrets.folderId }}"> link </a>
-            </body>
+              <style>
+                a,
+                a:visited {
+                  color: #01ff70;
+                }
+                a:hover,
+                a:focus,
+                a:active {
+                  color: #2ecc40;
+                }
+                html {
+                  font-size: 12px;
+                }
+                @media screen and (min-width: 32rem) and (max-width: 48rem) {
+                  html {
+                    font-size: 15px;
+                  }
+                }
+                @media screen and (min-width: 48rem) {
+                  html {
+                    font-size: 16px;
+                  }
+                }
+                body {
+                  line-height: 1.85;
+                }
+                p,
+                .retro-p {
+                  font-size: 1rem;
+                  margin-bottom: 1.3rem;
+                }
+                html,
+                body {
+                  background-color: #222;
+                  min-height: 100%;
+                }
+                html {
+                  font-size: 18px;
+                }
+                body {
+                  color: #fafafa;
+                  font-family: "Courier New";
+                  line-height: 1.45;
+                  margin: 6rem auto 1rem;
+                  max-width: 48rem;
+                  padding: 0.25rem;
+                }
+                blockquote {
+                  border-left: 3px solid #01ff70;
+                  padding-left: 1rem;
+                }
+              </style>
+              <body>
+                <p>Build job of ${{github.repository}} completed successfully</p>
+                <p>Build zip <a href="https://drive.google.com/drive/u/0/folders/${{ secrets.folderId }}">download link</a></p>
+                <hr />
+                <blockquote>
+                  <p>Powred by GitHub Actions - PriceStarz MV3</p>
+                </blockquote>
+              </body>
             </html>
-          # Optional HTML body read from file:
-          #html_body: file://README.html
-          # Optional carbon copy recipients:
-          #cc: kyloren@example.com,leia@example.com
-          # Optional blind carbon copy recipients:
-          #bcc: r2d2@example.com,hansolo@example.com
-          # Optional recipient of the email response:
-          #reply_to: luke@example.com
-          # Optional Message ID this message is replying to:
-          #in_reply_to: <random-luke@example.com>
-          # Optional unsigned/invalid certificates allowance:
-          #ignore_cert: true
-          # Optional converting Markdown to HTML (set content_type to text/html too):
-          #convert_markdown: true
-          #convert_to_html_from_markdown: true
-          # Optional attachments:
-          #attachments: build/chrome-mv3-prod.zip
-          # Optional priority: 'high', 'normal' (default) or 'low'
-          #priority: low
