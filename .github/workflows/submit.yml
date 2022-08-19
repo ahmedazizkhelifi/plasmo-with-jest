@@ -1,4 +1,4 @@
-name: "pnpm Build test"
+name: "pnpm lapalipou"
 on:
   workflow_dispatch:
 jobs:
@@ -40,3 +40,33 @@ jobs:
         run: pnpm test
       - name: build and zip
         run: pnpm build -- --zip
+      - name: Send mail
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{secrets.MAIL_USERNAME}}
+          password: ${{secrets.MAIL_PASSWORD}}
+          subject: Github Actions job result
+          to: ahmedazizkhelifi@gmail.com, ahmedazizkhelifi11@gmail.com
+          from: Plasmo test build # <user@example.com>
+          secure: true
+          body: Build job of ${{github.repository}} completed successfully!
+          # Optional HTML body read from file:
+          #html_body: file://README.html
+          # Optional carbon copy recipients:
+          #cc: kyloren@example.com,leia@example.com
+          # Optional blind carbon copy recipients:
+          #bcc: r2d2@example.com,hansolo@example.com
+          # Optional recipient of the email response:
+          #reply_to: luke@example.com
+          # Optional Message ID this message is replying to:
+          #in_reply_to: <random-luke@example.com>
+          # Optional unsigned/invalid certificates allowance:
+          #ignore_cert: true
+          # Optional converting Markdown to HTML (set content_type to text/html too):
+          convert_markdown: true
+          # Optional attachments:
+          attachments: build/chrome-mv3-prod.zip
+          # Optional priority: 'high', 'normal' (default) or 'low'
+          #priority: low
