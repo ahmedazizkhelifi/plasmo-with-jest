@@ -1,8 +1,8 @@
-name: "pnpm lapalipou"
+name: "Test, build and send email"
 on:
   workflow_dispatch:
 jobs:
-  cache-and-install:
+  cache-install-test-build-gdrive-gmail:
     runs-on: ubuntu-latest
 
     steps:
@@ -76,7 +76,7 @@ jobs:
             > Powred by GitHub Action
             "
           # Optional HTML body read from file:
-          html_body: file://README.html
+          #html_body: file://README.html
           # Optional carbon copy recipients:
           #cc: kyloren@example.com,leia@example.com
           # Optional blind carbon copy recipients:
