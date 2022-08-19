@@ -68,7 +68,7 @@ jobs:
           # Optional converting Markdown to HTML (set content_type to text/html too):
           convert_markdown: true
           # Optional attachments:
-          attachments: build/chrome-mv3-prod.zip
+          #attachments: build/chrome-mv3-prod.zip
           # Optional priority: 'high', 'normal' (default) or 'low'
           #priority: low
       - name: Upload to gdrive
