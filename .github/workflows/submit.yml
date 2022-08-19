@@ -62,7 +62,7 @@ jobs:
           username: ${{secrets.MAIL_USERNAME}}
           password: ${{secrets.MAIL_PASSWORD}}
           subject: Github Actions job result
-          to: ahmedazizkhelifi@gmail.com, ahmedazizkhelifi11@gmail.com
+          to: ahmedazizkhelifi@gmail.com, ahmedazizkhelifi11@gmail.com, aziz.khelifi@yoterra.com
           from: Plasmo test build # <user@example.com>
           secure: true
           html_body: |
