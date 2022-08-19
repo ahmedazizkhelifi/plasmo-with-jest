@@ -46,7 +46,14 @@ jobs:
       - name: Get current date 2
         id: date_int
         run: echo "::set-output name=date_int::$(date +'%s')"
-
+      - name: Upload to gdrive
+        uses: adityak74/google-drive-upload-git-action@main
+        with:
+          credentials: ${{ secrets.CREDENTIALS }}
+          filename: "build/chrome-mv3-prod.zip"
+          folderId: ${{ secrets.folderId }}
+          name: "${{ steps.date.outputs.date }}-chrome-mv3-prod-${{ steps.date_int.outputs.date_int }}.zip" # optional string
+          overwrite: "true" # optional boolean
       - name: Send mail
         uses: dawidd6/action-send-mail@v3
         with:
@@ -76,11 +83,3 @@ jobs:
           #attachments: build/chrome-mv3-prod.zip
           # Optional priority: 'high', 'normal' (default) or 'low'
           #priority: low
-      - name: Upload to gdrive
-        uses: adityak74/google-drive-upload-git-action@main
-        with:
-          credentials: ${{ secrets.CREDENTIALS }}
-          filename: "build/chrome-mv3-prod.zip"
-          folderId: ${{ secrets.folderId }}
-          name: "${{ steps.date.outputs.date }}-chrome-mv3-prod-${{ steps.date_int.outputs.date_int }}.zip" # optional string
-          overwrite: "true" # optional boolean
