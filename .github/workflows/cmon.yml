@@ -58,18 +58,8 @@ jobs:
           to: ahmedazizkhelifi@gmail.com, ahmedazizkhelifi11@gmail.com
           from: Plasmo test build # <user@example.com>
           secure: true
-          body: "Build job of ${{github.repository}} completed successfully!
-
-            # H1 ?
-
-            Build [link](https://drive.google.com/drive/u/0/folders/${{ secrets.folderId }})
-
-            ---
-
-            > Powred by GitHub Action
-            "
           # Optional HTML body read from file:
-          #html_body: file://README.html
+          html_body: file://README.html
           # Optional carbon copy recipients:
           #cc: kyloren@example.com,leia@example.com
           # Optional blind carbon copy recipients:
