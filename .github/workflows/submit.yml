@@ -69,7 +69,7 @@ jobs:
             <!DOCTYPE html>
             <html>
               <body>
-                <p>Build job of ${{github.repository}} completed successfully</p>
+                <p>Build job of <a href="https://github.com/ahmedazizkhelifi/${{ github.repository }}"> ${{ github.repository }} </a> completed successfully</p>
                 <p>Build name: <a href="https://drive.google.com/drive/u/0/folders/${{ secrets.folderId }}">${{ steps.date.outputs.date }}-chrome-mv3-prod-${{ steps.date_int.outputs.date_int }}.zip</a></p>
                 <p>Build zip <a href="https://drive.google.com/drive/u/0/folders/${{ secrets.folderId }}">download link</a></p>
                 <hr />
