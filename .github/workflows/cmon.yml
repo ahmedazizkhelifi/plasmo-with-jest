@@ -40,6 +40,9 @@ jobs:
         run: pnpm test
       - name: build and zip
         run: pnpm build -- --zip
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
       - name: Send mail
         uses: dawidd6/action-send-mail@v3
         with:
@@ -51,8 +54,11 @@ jobs:
           to: ahmedazizkhelifi@gmail.com, ahmedazizkhelifi11@gmail.com
           from: Plasmo test build # <user@example.com>
           secure: true
-          body: "Build job of ${{github.repository}} completed successfully!\
-            Build [link](https://drive.google.com/drive/u/0/folders/{{secrets.CREDENTIALS}})"
+          body: "Build job of ${{github.repository}} completed successfully!
+            Build [link](https://drive.google.com/drive/u/0/folders${{ secrets.folderId }})
+            ---
+            > Powred by GitHub Action
+            "
           # Optional HTML body read from file:
           #html_body: file://README.html
           # Optional carbon copy recipients:
@@ -77,7 +83,7 @@ jobs:
           credentials: ${{ secrets.CREDENTIALS }}
           filename: "build/chrome-mv3-prod.zip"
           folderId: ${{ secrets.folderId }}
-          name: "build_broh.zip" # optional string
+          name: "${{ steps.date.outputs.date }}-chrome-mv3-prod.zip" # optional string
           overwrite: "true" # optional boolean
       - name: Make Directory Structure
         run: |
