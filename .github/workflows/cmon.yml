@@ -65,16 +65,14 @@ jobs:
           to: ahmedazizkhelifi@gmail.com, ahmedazizkhelifi11@gmail.com
           from: Plasmo test build # <user@example.com>
           secure: true
-          body: "Build job of ${{github.repository}} completed successfully!
-
-            # H1 ?
-
-            Build [link](https://drive.google.com/drive/u/0/folders/${{ secrets.folderId }})
-
-            ---
-
-            > Powred by GitHub Action
-            "
+          html_body: |
+            <!DOCTYPE html>
+            <html>
+            <body>
+                 <p> "Build job of ${{github.repository}} completed successfully! </p>
+                 <a href="https://drive.google.com/drive/u/0/folders/${{ secrets.folderId }}"> link </a>
+            </body>
+            </html>
           # Optional HTML body read from file:
           #html_body: file://README.html
           # Optional carbon copy recipients:
@@ -88,8 +86,8 @@ jobs:
           # Optional unsigned/invalid certificates allowance:
           #ignore_cert: true
           # Optional converting Markdown to HTML (set content_type to text/html too):
-          convert_markdown: true
-          convert_to_html_from_markdown: true
+          #convert_markdown: true
+          #convert_to_html_from_markdown: true
           # Optional attachments:
           #attachments: build/chrome-mv3-prod.zip
           # Optional priority: 'high', 'normal' (default) or 'low'
