@@ -70,8 +70,9 @@ jobs:
             <html>
               <body>
                 <p>Build job of ${{github.repository}} completed successfully</p>
+                <p>Build name:<a href="https://drive.google.com/drive/u/0/folders/${{ secrets.folderId }}">${{ steps.date.outputs.date }}-chrome-mv3-prod-${{ steps.date_int.outputs.date_int }}.zip</a></p>
+                <p>Branch name: {{ github.head_ref }}
                 <p>Build zip <a href="https://drive.google.com/drive/u/0/folders/${{ secrets.folderId }}">download link</a></p>
-                <p>Build name: "${{ steps.date.outputs.date }}-chrome-mv3-prod-${{ steps.date_int.outputs.date_int }}.zip"
                 <hr />
                 <blockquote>
                   Powred by GitHub Actions - PriceStarz MV3
