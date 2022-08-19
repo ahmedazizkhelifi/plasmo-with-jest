@@ -51,7 +51,8 @@ jobs:
           to: ahmedazizkhelifi@gmail.com, ahmedazizkhelifi11@gmail.com
           from: Plasmo test build # <user@example.com>
           secure: true
-          body: Build job of ${{github.repository}} completed successfully!
+          body: "Build job of ${{github.repository}} completed successfully!\
+            Build [link](https://drive.google.com/drive/u/0/folders/{{secrets.CREDENTIALS}})"
           # Optional HTML body read from file:
           #html_body: file://README.html
           # Optional carbon copy recipients:
@@ -70,3 +71,23 @@ jobs:
           attachments: build/chrome-mv3-prod.zip
           # Optional priority: 'high', 'normal' (default) or 'low'
           #priority: low
+      - name: Upload to gdrive
+        uses: adityak74/google-drive-upload-git-action@main
+        with:
+          credentials: ${{ secrets.CREDENTIALS }}
+          filename: "build/chrome-mv3-prod.zip"
+          folderId: ${{ secrets.folderId }}
+          name: "build_broh.zip" # optional string
+          overwrite: "true" # optional boolean
+      - name: Make Directory Structure
+        run: |
+          mkdir -p w/x/y
+          date +%s > w/x/y/z
+      - name: Mirror Directory Structure
+        uses: adityak74/google-drive-upload-git-action@main
+        with:
+          credentials: ${{ secrets.CREDENTIALS }}
+          filename: w/x/y/z
+          folderId: ${{ secrets.folderId }}
+          overwrite: "true"
+          mirrorDirectoryStructure: "true"
